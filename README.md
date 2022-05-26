@@ -13,5 +13,3 @@ For this purpose, a c driver has been made in the pmod_nav directory to collect 
 Once it is in that directory it must be compiled by doing a make. 
 
 To test it I have to upload the jupyter project and check that it gets from the sensor.
-
-Translated with www.DeepL.com/Translator (free version)
