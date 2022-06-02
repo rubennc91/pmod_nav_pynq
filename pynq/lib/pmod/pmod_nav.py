@@ -39,8 +39,12 @@ __email__ = "ruben.nieto@urjc.es"
 PMOD_NAV_PROGRAM = "pmod_nav.bin"
 GET_AG_ID = 0x1
 READ_ACCEL = 0x10
+READ_GYRO = 0x15
 GET_MAG_ID = 0x2
+READ_MAG = 0x20
 GET_ALT_ID = 0x4
+READ_ALT = 0x40
+READ_TEMP = 0x45
 
 class Pmod_NAV(object):
     """This class controls an NAV Pmod.
@@ -93,30 +97,81 @@ class Pmod_NAV(object):
         self.microblaze.write_blocking_command(READ_ACCEL)
         data = self.microblaze.read_mailbox(0, 3)
         return data
-
         
-    # def get_mag_id(self):
-        # """The function gets the device id for all the instruments.
+    def read_gyro(self):
+        """The function gets the device id for all the instruments.
         
-        # Returns
-        # -------
-        # list
-            # A list of the device ID Accel-Gyro, Mag and alt.
+        Returns
+        -------
+        list
+            A list of the device ID Accel-Gyro, Mag and alt.
         
-        # """             
-        # self.microblaze.write_blocking_command(GET_MAG_ID)
-        # data = self.microblaze.read_mailbox(0)
-        # return data
+        """             
+        self.microblaze.write_blocking_command(READ_GYRO)
+        data = self.microblaze.read_mailbox(0, 3)
+        return data
+        
+    def get_mag_id(self):
+        """The function gets the device id for all the instruments.
+        
+        Returns
+        -------
+        list
+            A list of the device ID Accel-Gyro, Mag and alt.
+        
+        """             
+        self.microblaze.write_blocking_command(GET_MAG_ID)
+        data = self.microblaze.read_mailbox(0)
+        return data
+        
+    def read_mag(self):
+        """The function gets the device id for all the instruments.
+        
+        Returns
+        -------
+        list
+            A list of the device ID Accel-Gyro, Mag and alt.
+        
+        """             
+        self.microblaze.write_blocking_command(READ_MAG)
+        data = self.microblaze.read_mailbox(0, 3)
+        return data
     
-#    def get_alt_id(self):
-#        """The function gets the device id for all the instruments.
-#        
-#        Returns
-#        -------
-#        list
-#            A list of the device ID Accel-Gyro, Mag and alt.
-#        
-#        """             
-#        self.microblaze.write_blocking_command(GET_ALT_ID)
-#        data = self.microblaze.read_mailbox(0)
-#        return data
+    def get_alt_id(self):
+        """The function gets the device id for all the instruments.
+
+        Returns
+        -------
+        list
+           A list of the device ID Accel-Gyro, Mag and alt.
+
+        """             
+        self.microblaze.write_blocking_command(GET_ALT_ID)
+        data = self.microblaze.read_mailbox(0)
+        return data
+        
+    def read_alt(self):
+        """The function gets the device id for all the instruments.
+        
+        Returns
+        -------
+        list
+            A list of the device ID Accel-Gyro, Mag and alt.
+        
+        """             
+        self.microblaze.write_blocking_command(READ_ALT)
+        data = self.microblaze.read_mailbox(0)
+        return data
+        
+    def read_temp(self):
+        """The function gets the device id for all the instruments.
+        
+        Returns
+        -------
+        list
+            A list of the device ID Accel-Gyro, Mag and alt.
+        
+        """             
+        self.microblaze.write_blocking_command(READ_TEMP)
+        data = self.microblaze.read_mailbox(0)
+        return data

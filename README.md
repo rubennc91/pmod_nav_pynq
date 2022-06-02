@@ -1,8 +1,6 @@
 # pmod_nav_pynq
 
-
 ## Not finished yet
-
 
 This repository implements the driver to use the pmod_nav (link: https://digilent.com/reference/pmod/pmodnav/start) with the Pynq infrastructure.
 
@@ -10,6 +8,10 @@ To make the driver in a simple way, we have chosen to use the MicroBlaze subsyst
 
 For this purpose, a c driver has been made in the pmod_nav directory to collect the IMU values. It is incomplete and will be completed. This repository (pmod_nav directory, pmod_nav.bin, pmod_nav.py and Makefile) must be included in ~/pynq/lib/pmod/.
 
-Once it is in that directory it must be compiled by doing a make. 
+Once it is in that directory it must be compiled using ```make```. 
 
 To test it I have to upload the jupyter project and check that it gets from the sensor.
+
+### ToDo
+
+*Verify the return data from de the sensor in order to make sense.
